@@ -15,27 +15,11 @@ spring:
         ssl:
           trustedX509Certificates:
             - classpath:certificate.pem
-
       routes:
-        - id: path_route
-          uri: https://localhost:8082
-          predicates:
-            - Path=/user/**
-        - id: json-authenticate
-          uri: grpc://localhost:9090
-          predicates:
-            - Path=/login/**
-          filters:
-            - name: JsonToGrpc
-              args:
-                protoDescriptor: classpath:schema.pb
-                protoFile: classpath:schema.proto
-                service: AuthService
-                method: authenticate
         - id: json-hello
           uri: https://localhost:9091
           predicates:
-            - Path=/rohan/**
+            - Path=/hello/**
           filters:
             - name: JsonToGrpc
               args:
@@ -43,30 +27,3 @@ spring:
                 protoFile: classpath:hello.proto
                 service: HelloWorldService
                 method: sayHello
-logging:
-  level:
-    reactor.netty: DEBUG
-    org.springframework.cloud.gateway.filter:
-      TRACE
-      # - id: json-route
-      #   uri: grpc://localhost:9090
-      #   predicates:
-      #     - Path=/createUser/**
-      #   filters:
-      #     - name: JsonToGrpc
-      #       args:
-      #         protoDescriptor: classpath:schema.pb
-      #         protoFile: classpath:schema.proto
-      #         service: UserService
-      #         method: createUser
-      # - id: json
-      #   uri: grpc://localhost:6565
-      #   predicates:
-      #     - Path=/greetings/**
-      #   filters:
-      #     - name: JsonToGrpc
-      #       args:
-      #         protoDescriptor: classpath:greeting.pb
-      #         protoFile: classpath:greeting.proto
-      #         service: GreetingService
-      #         method: Hello
