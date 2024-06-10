@@ -1,17 +1,10 @@
-spring:
-  application:
-    name: grpc-example
 grpc:
-  enableReflection: true
   enabled: true
   server:
-    http2:
-      enabled: true
-    port: 9091
+    port: 9090
     security:
       enabled: true
       certificate-chain: classpath:certificate.pem
       private-key: classpath:private.key
-logging:
-  level:
-    io.netty: TRACE
+    http2:
+      enabled: true
