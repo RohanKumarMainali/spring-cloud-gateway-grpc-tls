@@ -1,10 +1,6 @@
 grpc:
   enabled: true
   server:
-    port: 9090
-    security:
-      enabled: true
-      certificate-chain: classpath:certificate.pem
-      private-key: classpath:private.key
+    port: 9091
     http2:
       enabled: true
