@@ -4,3 +4,4 @@ grpc:
     port: 9091
     http2:
       enabled: true
+    negotiationType: plaintext
