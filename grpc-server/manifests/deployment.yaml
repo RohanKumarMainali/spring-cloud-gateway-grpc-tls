@@ -16,7 +16,11 @@ spec:
     spec:
       containers:
         - name: grpc
-          image: demo:latest
+          image: grpc_server:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
+          env:
+            - name: GRPC_SERVER_PORT
+              value: "9091" # Set to an appropriate integer port
+

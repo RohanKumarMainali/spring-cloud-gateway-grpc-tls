@@ -11,14 +11,17 @@ import com.example.service.grpc.HelloWorldServiceGrpc.HelloWorldServiceBlockingS
 public class Client {
   public static void main(String[] args) {
 
-    ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9091)
-        .usePlaintext()
-        .build();
-
-    HelloWorldServiceBlockingStub stub = HelloWorldServiceGrpc.newBlockingStub(channel);
-
-    HelloResponse helloResponse = stub.sayHello(HelloRequest.newBuilder().setName("Rohan Kumar Mainali").build());
-    System.out.println("Response " + helloResponse.getMessage());
+    // ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9091)
+    // .usePlaintext()
+    // .build();
+    //
+    // HelloWorldServiceBlockingStub stub =
+    // HelloWorldServiceGrpc.newBlockingStub(channel);
+    //
+    // HelloResponse helloResponse =
+    // stub.sayHello(HelloRequest.newBuilder().setName("Rohan Kumar
+    // Mainali").build());
+    // System.out.println("Response " + helloResponse.getMessage());
 
   }
 }
