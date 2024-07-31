@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-client
+  labels:
+    app: grpc-client
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: grpc-client
+  template:
+    metadata:
+      labels:
+        app: grpc-client
+    spec:
+      containers:
+        - name: grpc
+          image: grpc_client:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: GRPC_SERVER_PORT
+              value: "9090" # Set to an appropriate integer port
